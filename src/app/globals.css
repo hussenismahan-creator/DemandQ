@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* DemandQ ships dark-first. Light tokens exist for completeness/a11y. */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 4%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 4%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 4%;
+    --primary: 330 81% 56%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 6% 10%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+    --accent: 240 5% 96%;
+    --accent-foreground: 240 6% 10%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 330 81% 56%;
+
+    --severity-critical: 348 83% 60%;
+    --severity-high: 20 90% 58%;
+    --severity-medium: 38 92% 55%;
+    --severity-low: 199 89% 55%;
+    --severity-info: 240 4% 60%;
+
+    --radius: 0.65rem;
+  }
+
+  .dark {
+    /* Near-black canvas in the Linear/Vercel register. */
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
+    --card: 240 8% 6%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 9% 5%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 330 88% 64%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 5% 12%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 5% 11%;
+    --muted-foreground: 240 5% 60%;
+    --accent: 240 5% 14%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --success: 142 69% 48%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 55%;
+    --warning-foreground: 240 10% 4%;
+    --border: 240 5% 14%;
+    --input: 240 5% 16%;
+    --ring: 330 88% 64%;
+
+    --severity-critical: 348 90% 64%;
+    --severity-high: 20 95% 62%;
+    --severity-medium: 38 95% 58%;
+    --severity-low: 199 92% 60%;
+    --severity-info: 240 5% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    @apply bg-primary/25 text-foreground;
+  }
+
+  /* Refined scrollbars to match the product surface. */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-border;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/40;
+    background-clip: content-box;
+  }
+}
+
+@layer components {
+  /* Frosted, elevated surface used across cards and panels. */
+  .surface-glass {
+    @apply border border-border/60 bg-card/60 backdrop-blur-xl;
+  }
+
+  /* Subtle top-lit gradient border used on hero cards. */
+  .surface-gradient {
+    background:
+      linear-gradient(180deg, hsl(var(--card) / 0.9), hsl(var(--card) / 0.4));
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-br from-foreground via-foreground to-foreground/50 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-brand {
+    @apply bg-gradient-to-r from-primary via-[hsl(318_88%_64%)] to-[hsl(280_86%_68%)] bg-clip-text text-transparent;
+  }
+
+  /* Faint dotted grid backdrop for hero / empty areas. */
+  .bg-grid {
+    background-size: 40px 40px;
+    @apply bg-grid-pattern;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Radial mask that fades content toward the edges. */
+  .mask-radial-faded {
+    -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%);
+    mask-image: radial-gradient(circle at center, black, transparent 80%);
+  }
+}
