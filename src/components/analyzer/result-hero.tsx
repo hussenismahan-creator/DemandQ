@@ -2,9 +2,7 @@
 
 import { motion } from "framer-motion";
 import { RotateCcw, FileText, Sparkles } from "lucide-react";
-import Link from "next/link";
 import type { AnalysisResult } from "@/types";
-import { ROUTES } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { SeverityBadge } from "@/components/shared/severity-badge";
@@ -13,10 +11,11 @@ import { ConfidenceMeter } from "@/components/shared/confidence-meter";
 interface ResultHeroProps {
   result: AnalysisResult;
   onReset: () => void;
+  onViewReport: () => void;
 }
 
 /** The headline card summarizing an analysis: summary, severity, confidence. */
-export function ResultHero({ result, onReset }: ResultHeroProps) {
+export function ResultHero({ result, onReset, onViewReport }: ResultHeroProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 12 }}
@@ -52,11 +51,9 @@ export function ResultHero({ result, onReset }: ResultHeroProps) {
           </div>
 
           <div className="mt-6 flex flex-wrap items-center gap-2">
-            <Button size="sm" asChild>
-              <Link href={`${ROUTES.reports}/${result.report.id}`}>
-                <FileText className="h-4 w-4" />
-                View full report
-              </Link>
+            <Button size="sm" onClick={onViewReport}>
+              <FileText className="h-4 w-4" />
+              View full report
             </Button>
             <Button size="sm" variant="outline" onClick={onReset}>
               <RotateCcw className="h-4 w-4" />

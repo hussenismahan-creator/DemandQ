@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Microscope, Clock, Boxes, Wrench, ListTodo, FileText, ScanSearch } from "lucide-react";
 import type { AnalysisResult } from "@/types";
@@ -24,11 +25,13 @@ const fade = {
 
 /** The complete analyzer results view: hero + findings tabs + generated report. */
 export function AnalysisResults({ result, onReset }: AnalysisResultsProps) {
+  const [tab, setTab] = useState("analysis");
+
   return (
     <div className="space-y-5">
-      <ResultHero result={result} onReset={onReset} />
+      <ResultHero result={result} onReset={onReset} onViewReport={() => setTab("report")} />
 
-      <Tabs defaultValue="analysis">
+      <Tabs value={tab} onValueChange={setTab}>
         <TabsList className="w-full sm:w-auto">
           <TabsTrigger value="analysis" className="flex-1 sm:flex-none">
             <ScanSearch className="h-3.5 w-3.5" />
