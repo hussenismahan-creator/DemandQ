@@ -40,7 +40,7 @@ export function AnalyzingState({ progress, onCancel }: AnalyzingStateProps) {
         <div className="relative flex h-20 w-20 items-center justify-center">
           <span className="absolute inset-0 animate-pulse-ring rounded-full bg-primary/40" />
           <span className="absolute inset-2 animate-pulse-ring rounded-full bg-primary/30 [animation-delay:0.4s]" />
-          <span className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-severity-low text-primary-foreground shadow-lg">
+          <span className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-[hsl(280_86%_66%)] text-primary-foreground shadow-lg">
             <ScanSearch className="h-7 w-7" />
           </span>
         </div>

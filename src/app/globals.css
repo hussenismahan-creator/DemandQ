@@ -11,7 +11,7 @@
     --card-foreground: 240 10% 4%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 4%;
-    --primary: 244 76% 60%;
+    --primary: 330 81% 56%;
     --primary-foreground: 0 0% 100%;
     --secondary: 240 5% 96%;
     --secondary-foreground: 240 6% 10%;
@@ -27,7 +27,7 @@
     --warning-foreground: 0 0% 100%;
     --border: 240 6% 90%;
     --input: 240 6% 90%;
-    --ring: 244 76% 60%;
+    --ring: 330 81% 56%;
 
     --severity-critical: 348 83% 60%;
     --severity-high: 20 90% 58%;
@@ -46,7 +46,7 @@
     --card-foreground: 0 0% 98%;
     --popover: 240 9% 5%;
     --popover-foreground: 0 0% 98%;
-    --primary: 244 90% 68%;
+    --primary: 330 88% 64%;
     --primary-foreground: 0 0% 100%;
     --secondary: 240 5% 12%;
     --secondary-foreground: 0 0% 98%;
@@ -62,7 +62,7 @@
     --warning-foreground: 240 10% 4%;
     --border: 240 5% 14%;
     --input: 240 5% 16%;
-    --ring: 244 90% 68%;
+    --ring: 330 88% 64%;
 
     --severity-critical: 348 90% 64%;
     --severity-high: 20 95% 62%;
@@ -127,7 +127,7 @@
   }
 
   .text-gradient-brand {
-    @apply bg-gradient-to-r from-primary via-primary to-severity-low bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary via-[hsl(318_88%_64%)] to-[hsl(280_86%_68%)] bg-clip-text text-transparent;
   }
 
   /* Faint dotted grid backdrop for hero / empty areas. */

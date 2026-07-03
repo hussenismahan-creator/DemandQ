@@ -12,7 +12,7 @@ interface LogoProps {
 export function Logo({ className, href = ROUTES.landing, showWordmark = true }: LogoProps) {
   return (
     <Link href={href} className={cn("group inline-flex items-center gap-2.5", className)}>
-      <span className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-severity-low shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_8px_24px_-12px_hsl(var(--primary)/0.8)]">
+      <span className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-[hsl(280_86%_66%)] shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_8px_24px_-12px_hsl(var(--primary)/0.8)]">
         <svg
           viewBox="0 0 24 24"
           fill="none"
